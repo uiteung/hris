@@ -13,6 +13,16 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
+    
+    var requestOptions = {
+        method: 'GET',
+        redirect: 'follow'
+      };
+      
+      fetch("https://hris_backend.ulbi.ac.id/peg/sim", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
 
     // close
     const close = document.querySelectorAll('.navbar-close');
