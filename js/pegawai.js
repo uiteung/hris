@@ -9,11 +9,25 @@ var requestOptions = {
         return result.json();
     })
     .then((objectData)=>{
-        console.log(objectData)
-        console.log(objectData[0].nama);
+        // console.log(objectData)
+        console.log(objectData.data[0].nip);
         let tableData="";
-        objectData.map((values)=>{
-            tableData=`<h1>${values.nama}</h1>`;
+        objectData.data.map((values)=>{
+            tableData +=`
+            <div>
+            <tr class="text-xs">
+            <td class="flex items-center py-5 px-6 font-medium">
+              <input class="mr-3" type="checkbox" name="" id="">
+              <p>${values.nip}</p>
+            </td>
+            <td class="font-medium">${values.nama}</td>
+            <td class="font-medium">${values.handphone}</td>
+            <td>
+            ${values.email}
+            </td>
+            <td>${values.alamat}</td>
+          </tr>
+          </div>`;
         });
         document.getElementById("tablebody").innerHTML=tableData
     })
