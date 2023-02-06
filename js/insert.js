@@ -1,33 +1,62 @@
-var myHeaders = new Headers();
-myHeaders.append("Content-Type", "application/json");
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  
+  const form = document.getElementById('MyForm');
 
-var raw = JSON.stringify({
-  "nik": 0,
-  "pokok": 0,
-  "keluarga": 0,
-  "pangan": 0,
-  "kinerja": 0,
-  "keahlian": 0,
-  "struk": 0,
-  "transportasi": 0,
-  "kehadiran": 0,
-  "kopkar": 0,
-  "bank_jabar": 0,
-  "bpjs": 0,
-  "arisan": 0,
-  "bauk": 0,
-  "pph": 0,
-  "lain2": 0
-});
+  form.addEventListener('submit', function(e) {
+    e.preventDefault()
 
-var requestOptions = {
-  method: 'POST',
-  headers: myHeaders,
-  body: raw,
-  redirect: 'follow'
-};
+    var nik = document.getElementById('nik').value
+    var pokok = document.getElementById('pokok').value
+    var keluarga = document.getElementById('keluarga').value
+    var pangan = document.getElementById('pangan').value
+    var kinerja = document.getElementById('kinerja').value
+    var keahlian = document.getElementById('keahlian').value
+    var struktural = document.getElementById('struktural').value
+    var transportasi = document.getElementById('transportasi').value
+    var kehadiran = document.getElementById('kehadiran').value
+    var kopkar = document.getElementById('kopkar').value
+    var bankjabar = document.getElementById('bankjabar').value
+    var bpjs = document.getElementById('bpjs').value
+    var arisan = document.getElementById('arisan').value
+    var bauk = document.getElementById('bauk').value
+    var pph = document.getElementById('pph').value
+    var lain2 = document.getElementById('lain2').value
 
-fetch("https://hris_backend.ulbi.ac.id/gaji/peg", requestOptions)
+    var raw = JSON.stringify({
+      "nik": nik,
+      "pokok": pokok,
+      "keluarga": keluarga,
+      "pangan": pangan,
+      "kinerja": kinerja,
+      "keahlian": keahlian,
+      "struk": struktural,
+      "transportasi": transportasi,
+      "kehadiran": kehadiran,
+      "kopkar": kopkar,
+      "bank_jabar": bankjabar,
+      "bpjs": bpjs,
+      "arisan": arisan,
+      "bauk": bauk,
+      "pph": pph,
+      "lain2": lain2
+    });
+    
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+  
+  fetch("https://hris_backend.ulbi.ac.id/gaji/peg", requestOptions)
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
+  console.log(result)
+  })
+
+
+
+
+
