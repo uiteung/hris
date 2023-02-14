@@ -32,7 +32,7 @@
   
     fetch("https://hris_backend.ulbi.ac.id/gaji/peg", requestOptions)
     .then(response => response.json())
-    .then(result => console.log(result))
+    .then(result => console.log(result), alert("data inserted"))
     .catch(error => console.log('error', error));
 
     document.getElementById('form').reset();
