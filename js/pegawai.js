@@ -45,10 +45,25 @@ fetch("https://hris_backend.ulbi.ac.id/pegawai/sdm", requestOptions)
           <td>
             <span class="inline-block py-1 px-2 text-purple-500 bg-purple-50 rounded-full">${values.jenis_sdm}</span>
           </td>
+          <td>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-employee-id="${values.id_sdm}">
+			Detail
+			</button>
+
+          </td>
         </tr>`;
 		});
 		// Tampilkan data pegawai ke dalam tabel
 		document.getElementById("tablebody").innerHTML = tableData;
+
+		// Tambahkan event listener pada setiap tombol detail untuk mengambil id_sdm dan mengarahkan ke halaman detail pegawai yang sesuai
+		const detailButtons = document.querySelectorAll('.bg-blue-500');
+		detailButtons.forEach((button) => {
+			button.addEventListener('click', (event) => {
+				const idSdm = event.target.getAttribute('data-employee-id');
+				window.location.href = `detailpegawai.html?id_sdm=${idSdm}`;
+			});
+		});
 	})
 	.catch(error => {
 		// Tangani error jika terjadi
