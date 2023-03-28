@@ -1,7 +1,7 @@
 // Set headers yang diperlukan untuk mengakses API
 const headers = {
 	'Content-Type': 'application/json',
-	'Authorization': `Bearer ${localStorage.getItem('token')}`
+	// 'Authorization': `Bearer ${localStorage.getItem('token')}`
 };
 
 // Set requestOptions untuk melakukan fetch data
@@ -12,9 +12,9 @@ const requestOptions = {
 };
 
 // Cek apakah token sudah tersimpan di localStorage, jika tidak maka redirect ke halaman login
-if (!localStorage.getItem('token')) {
-	window.location.href = 'login.html';
-}
+// if (!localStorage.getItem('token')) {
+// 	window.location.href = 'login.html';
+// }
 
 // Ambil data pegawai dengan mengirimkan request ke endpoint "https://hris_backend.ulbi.ac.id/pegawai/sdm"
 fetch("https://hris_backend.ulbi.ac.id/pegawai/sdm", requestOptions)
