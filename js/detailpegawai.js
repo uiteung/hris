@@ -70,12 +70,12 @@ fetch(`https://hris_backend.ulbi.ac.id/pegawai/sdm/kepegawaian/${idSdm}`)
                 <li
                   class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                   <h6 class="mb-0">SK CPNS</h6>
-                  <span class="text-bold">${data.data.sk_cpns}</span>
+                  <span class="text-bold">${data.data.sk_cpns ? data.data.sk_cpns : "-"}</span>
                 </li>
                 <li
                   class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                   <h6 class="mb-0">Tanggal SK CPNS</h6>
-                  <span class="text-bold">${data.data.TanggalSkCpns}</span>
+                  <span class="text-bold">${data.data.tgl_sk_cpns ? data.data.tgl_sk_cpns : "-"}</span>
                 </li>
                 <li
                   class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -181,7 +181,7 @@ fetch(`https://hris_backend.ulbi.ac.id/pegawai/sdm/keluarga/${idSdm}`)
 					<hr />
                     <h6 class="mb-0">NIP Pasangan</h6>
                     <div>
-                      <h7>${data.data.nip_pasangan}</h7>
+                      <h7>${data.data.nip_pasangan ? data.data.nip_pasangan : "-"}</h7>
                     </div>
 					<hr />
                     <h6 class="mb-0">Pekerjaan Pasangan</h6>
@@ -252,7 +252,7 @@ fetch(`https://hris_backend.ulbi.ac.id/pegawai/sdm/alamat/${idSdm}`)
                   <div class="col-sm-3">
                     <h6 class="mb-0">Dusun</h6>
                   </div>
-                  <div class="col-sm-9 text-bold">${data.data.dusun}</div>
+                  <div class="col-sm-9 text-bold">${data.data.dusun ? data.data.dusun : "-"}</div>
                 </div>
 				<hr />
                 <div class="row">
@@ -280,7 +280,7 @@ fetch(`https://hris_backend.ulbi.ac.id/pegawai/sdm/alamat/${idSdm}`)
                   <div class="col-sm-3">
                     <h6 class="mb-0">Telepon Rumah</h6>
                   </div>
-                  <div class="col-sm-9 text-bold">${data.data.telepon_rumah}</div>
+                  <div class="col-sm-9 text-bold">${data.data.telepon_rumah ? data.data.telepon_rumah : "-"}</div>
                 </div>
 				<hr />
                 <div class="row">

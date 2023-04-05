@@ -15,7 +15,7 @@ fetch("https://hris_backend.ulbi.ac.id/pegawai/sdm")
               <p class="font-medium">${values.nama_sdm}</p>
             </div>
           </td>
-          <td class="font-medium">${values.nip}</td>
+          <td class="font-medium">${values.nip ? values.nip : "-"}</td>
           <td>
             <span class="inline-block py-1 px-2 text-white bg-green-500 rounded-full">${values.nama_status_aktif}</span>
           </td>
