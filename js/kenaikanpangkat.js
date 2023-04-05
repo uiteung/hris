@@ -9,7 +9,7 @@ fetch("https://hris_backend.ulbi.ac.id/kp/kenaikanpangkat")
       tableData += `
         <tr class="text-xs bg-gray-50">
           <td class="py-5 px-6 font-medium">${values.nip}</td>
-          </td>
+          <td class="py-5 px-6 font-medium">${values.nik}</td>
           <td class="font-medium">${values.mk_bulan}</td>
           <td class="font-medium">${values.mk_tahun}</td>
           <td class="font-medium">${values.no_sk}</td>
