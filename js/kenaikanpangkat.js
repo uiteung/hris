@@ -1,4 +1,4 @@
-fetch("http://127.0.0.1:3000/kp/kenaikanpangkat")
+fetch("https://hris_backend.ulbi.ac.id/kp/kenaikanpangkat")
   .then((result) => {
     return result.json();
   })

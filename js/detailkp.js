@@ -1,7 +1,9 @@
 const urlParams = new URLSearchParams(window.location.search);
 const idNaikpangkat = urlParams.get("id_naikpangkat");
 
-fetch(`http://127.0.0.1:3000/kp/kenaikanpangkat/byid/${idNaikpangkat}`)
+fetch(
+  `https://hris_backend.ulbi.ac.id/kp/kenaikanpangkat/byid/${idNaikpangkat}`
+)
   .then((result) => {
     // Ubah data yang didapat dari server menjadi objek JSON
     return result.json();
