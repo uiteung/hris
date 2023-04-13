@@ -2,17 +2,17 @@ const urlParams = new URLSearchParams(window.location.search);
 const idNaikpangkat = urlParams.get("id_naikpangkat");
 
 fetch(
-  `https://hris_backend.ulbi.ac.id/kp/kenaikanpangkat/byid/${idNaikpangkat}`
+	`https://hris_backend.ulbi.ac.id/kp/kenaikanpangkat/byid/${idNaikpangkat}`
 )
-  .then((result) => {
-    // Ubah data yang didapat dari server menjadi objek JSON
-    return result.json();
-  })
-  .then((data) => {
-    // Tampilkan data pegawai ke dalam tabel atau div sesuai dengan struktur HTML yang digunakan pada file detailpegawai.html
-    let divData = "";
-    // Looping data pegawai dan masukkan ke dalam bentuk tabel
-    divData += `
+	.then((result) => {
+		// Ubah data yang didapat dari server menjadi objek JSON
+		return result.json();
+	})
+	.then((data) => {
+		// Tampilkan data pegawai ke dalam tabel atau div sesuai dengan struktur HTML yang digunakan pada file detailpegawai.html
+		let divData = "";
+		// Looping data pegawai dan masukkan ke dalam bentuk tabel
+		divData += `
             <div class="card-body">
                 <div class="row">
                   <div class="col-sm-3">
@@ -167,13 +167,31 @@ fetch(
                   </div>
                   <div class="col-sm-9 text-bold">${data.data.ket}</div>
                 </div>
+				<hr />
+                <div class="row">
+                  <div class="col-sm-3">
+                    <h6 class="mb-0">Ubah Status Kenaikan Pangkat</h6>
+                  </div>
+				  <div class="col-sm-9 text-bold">
+				  	<button type="button" class="btn btn-primary">Update</button>
+				  </div>
+                </div>
 			</div>`;
-    // Tampilkan data pegawai ke dalam tabel
-    document.getElementById("detailkp").innerHTML = divData;
-  })
+		// Tampilkan data pegawai ke dalam tabel
+		document.getElementById("detailkp").innerHTML = divData;
 
-  .catch((error) => {
-    // Tangani error jika terjadi
-    console.log("error", error);
-    alert("Terjadi kesalahan pada server");
-  });
+		// Dapatkan tombol update menggunakan id atau kelas
+		const updateButton = document.querySelector('.btn-primary');
+
+		// Tambahkan event listener untuk klik pada tombol
+		updateButton.addEventListener('click', function () {
+			// Arahkan pengguna ke halaman form update
+			window.location.href = 'updatekp.html';
+		});
+	})
+
+	.catch((error) => {
+		// Tangani error jika terjadi
+		console.log("error", error);
+		alert("Terjadi kesalahan pada server");
+	});
