@@ -8,6 +8,7 @@
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
       rel="stylesheet" />
+    <link rel="stylesheet" href="sweetalert2.min.css" />
     <style type="text/css">
       body {
         margin-top: 20px;
@@ -82,7 +83,7 @@
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item">
-            <a href="detailkp.html">Detail Kenaikan Pangkat</a>
+            <a href="kenaikanpangkat.html">Kenaikan Pangkat</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">
             Ajuan Kenaikan Pangkat
@@ -94,7 +95,222 @@
           <div class="card mb-4">
             <div class="card-header">Detail Pegawai</div>
             <div class="card-body">
-              <form id="formdata"></form>
+              <form id="form-update">
+                <div>
+                  <label class="small mb-1" for="id_pegawai"></label>
+                  <input
+                    class="form-control"
+                    id="id_pegawai"
+                    type="hidden"
+                    readonly />
+                </div>
+                <div class="mb-3">
+                  <label class="small mb-1" for="nama">Nama</label>
+                  <input class="form-control" id="nama" type="text" readonly />
+                </div>
+
+                <div class="row gx-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="nidn">NIDN</label>
+                    <input
+                      class="form-control"
+                      id="nidn"
+                      type="text"
+                      readonly />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="nip">NIP</label>
+                    <input class="form-control" id="nip" type="text" readonly />
+                  </div>
+                </div>
+
+                <div class="row gx-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="nipy">NIPY</label>
+                    <input
+                      class="form-control"
+                      id="nipy"
+                      type="text"
+                      readonly />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="ktp">NIK</label>
+                    <input class="form-control" id="nik" type="text" readonly />
+                  </div>
+                </div>
+
+                <div class="row gx-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="handphone"
+                      >No. Handphone</label
+                    >
+                    <input
+                      class="form-control"
+                      id="handphone"
+                      type="text"
+                      readonly />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="id_gol">Golongan</label>
+                    <select class="form-control" id="id_gol">
+                      <option value="">Pilih Golongan</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="row gx-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="JenisJabatanID"
+                      >Jabatan</label
+                    >
+                    <select class="form-control" id="JenisJabatanID">
+                      <option value="">Pilih Jabatan</option>
+                    </select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="id_jnskepeg"
+                      >Jenis Kepegawaian</label
+                    >
+                    <select class="form-control" id="id_jnskepeg">
+                      <option value="">Pilih Jenis Kepegawaian</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="small mb-1" for="id_statuskepeg"
+                    >Status Kepegawaian</label
+                  >
+                  <select class="form-control" id="id_statuskepeg">
+                    <option value="">Pilih Status Kepegawaian</option>
+                  </select>
+                </div>
+
+                <div class="row gx-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="no_surat_usul"
+                      >No. Surat Usul</label
+                    >
+                    <input
+                      class="form-control"
+                      id="no_surat_usul"
+                      type="text" />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="tgl_surat_usul"
+                      >Tanggal Surat Usul</label
+                    >
+                    <input
+                      class="form-control"
+                      id="tgl_surat_usul"
+                      type="date"
+                      name="tgl_surat_usul" />
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="small mb-1" for="no_sk">No. SK</label>
+                  <input class="form-control" id="no_sk" type="text" />
+                </div>
+
+                <div class="mb-3">
+                  <label class="small mb-1" for="tgl_sk">Tanggal SK</label>
+                  <input class="form-control" id="tgl_sk" type="date" />
+                </div>
+
+                <div class="row gx-3 mb-3">
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="pejabat_sk"
+                      >Pejabat SK</label
+                    >
+                    <input class="form-control" id="pejabat_sk" type="text" />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="mk_tahun"
+                      >Masa Kerja (Tahun)</label
+                    >
+                    <input
+                      class="form-control"
+                      id="mk_tahun"
+                      type="text"
+                      name="mk_tahun" />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="mk_bulan"
+                      >Masa Kerja (Bulan)</label
+                    >
+                    <input
+                      class="form-control"
+                      id="mk_bulan"
+                      type="text"
+                      name="mk_bulan" />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="tmt_baru"
+                      >Terhitung Tanggal Mulai (TMT) Baru</label
+                    >
+                    <input
+                      class="form-control"
+                      id="tmt_baru"
+                      type="date"
+                      name="tmt_baru" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="gapok_baru"
+                      >Gaji Pokok (Baru)</label
+                    >
+                    <input
+                      class="form-control"
+                      id="gapok_baru"
+                      type="text"
+                      name="gapok_baru" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="gapok_terbilang"
+                      >Gaji Pokok (Terbilang)</label
+                    >
+                    <input
+                      class="form-control"
+                      id="gapok_terbilang"
+                      type="text"
+                      name="gapok_terbilang" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="naik_selanjutnya"
+                      >Naik Selanjutnya</label
+                    >
+                    <input
+                      class="form-control"
+                      id="naik_selanjutnya"
+                      type="date"
+                      name="naik_selanjutnya" />
+                  </div>
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="ket">Keterangan</label>
+                    <select class="form-control" id="ket">
+                      <option value="Belum Diproses">Belum Diproses</option>
+                      <option value="Proses">Proses</option>
+                      <option value="Disetujui">Disetujui</option>
+                      <option value="Ditolak">Ditolak</option>
+                    </select>
+                  </div>
+                </div>
+                <a
+                  type="button"
+                  onclick="updateKp()"
+                  class="btn btn-primary btn-lg"
+                  role="button"
+                  >Update</a
+                >
+              </form>
             </div>
           </div>
         </div>
@@ -102,6 +318,9 @@
     </div>
     <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="sweetalert2.min.js"></script>
     <script type="text/javascript"></script>
     <script src="js/updatekp.js"></script>
   </body>

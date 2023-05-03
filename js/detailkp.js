@@ -2,7 +2,7 @@ const urlParams = new URLSearchParams(window.location.search);
 const idNaikpangkat = urlParams.get("id_naikpangkat");
 
 fetch(
-	`https://hris_backend.ulbi.ac.id/kp/kenaikanpangkat/byid/${idNaikpangkat}`
+	`http://127.0.0.1:3000/kp/kenaikanpangkat/byid/${idNaikpangkat}`
 )
 	.then((result) => {
 		// Ubah data yang didapat dari server menjadi objek JSON
@@ -67,7 +67,7 @@ fetch(
                   <div class="col-sm-3">
                     <h6 class="mb-0">Jabatan</h6>
                   </div>
-                  <div class="col-sm-9 text-bold">${data.data.singkatan}</div>
+                  <div class="col-sm-9 text-bold">${data.data.Nama}</div>
                 </div>
                 <hr />
                 <div class="row">
@@ -167,27 +167,9 @@ fetch(
                   </div>
                   <div class="col-sm-9 text-bold">${data.data.ket}</div>
                 </div>
-				<hr />
-                <div class="row">
-                  <div class="col-sm-3">
-                    <h6 class="mb-0">Ubah Status Kenaikan Pangkat</h6>
-                  </div>
-				  <div class="col-sm-9 text-bold">
-				  	<button type="button" class="btn btn-primary">Update</button>
-				  </div>
-                </div>
 			</div>`;
 		// Tampilkan data pegawai ke dalam tabel
 		document.getElementById("detailkp").innerHTML = divData;
-
-		// Dapatkan tombol update menggunakan id atau kelas
-		const updateButton = document.querySelector('.btn-primary');
-
-		// Tambahkan event listener untuk klik pada tombol
-		updateButton.addEventListener('click', function () {
-			// Arahkan pengguna ke halaman form update
-			window.location.href = 'updatekp.html';
-		});
 	})
 
 	.catch((error) => {
