@@ -111,7 +111,9 @@
 
                 <div class="row gx-3 mb-3">
                   <div class="col-md-6">
-                    <label class="small mb-1" for="nidn">NIDN</label>
+                    <label class="small mb-1" for="nidn"
+                      >NIDN - NIDK - NUP - NITK</label
+                    >
                     <input
                       class="form-control"
                       id="nidn"
@@ -127,21 +129,10 @@
 
                 <div class="row gx-3 mb-3">
                   <div class="col-md-6">
-                    <label class="small mb-1" for="nipy">NIPY</label>
-                    <input
-                      class="form-control"
-                      id="nipy"
-                      type="text"
-                      readonly />
-                  </div>
-
-                  <div class="col-md-6">
-                    <label class="small mb-1" for="ktp">NIK</label>
+                    <label class="small mb-1" for="ktp">NIK - KTP</label>
                     <input class="form-control" id="nik" type="text" readonly />
                   </div>
-                </div>
 
-                <div class="row gx-3 mb-3">
                   <div class="col-md-6">
                     <label class="small mb-1" for="handphone"
                       >No. Handphone</label
@@ -152,11 +143,21 @@
                       type="text"
                       readonly />
                   </div>
+                </div>
 
+                <div class="row gx-3 mb-3">
                   <div class="col-md-6">
                     <label class="small mb-1" for="id_gol">Golongan</label>
-                    <select class="form-control" id="id_gol">
-                      <option value="">Pilih Golongan</option>
+                    <select class="form-control" id="id_gol"></select>
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="small mb-1" for="jabatan">Jabatan</label>
+                    <select class="form-control" id="jabatan">
+                      <option value="Dosen">Dosen</option>
+                      <option value="Tenaga Kependidikan">
+                        Tenaga Kependidikan
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -164,20 +165,16 @@
                 <div class="row gx-3 mb-3">
                   <div class="col-md-6">
                     <label class="small mb-1" for="JenisJabatanID"
-                      >Jabatan</label
+                      >Jabatan Struktural</label
                     >
-                    <select class="form-control" id="JenisJabatanID">
-                      <option value="">Pilih Jabatan</option>
-                    </select>
+                    <select class="form-control" id="JenisJabatanID"></select>
                   </div>
 
                   <div class="col-md-6">
                     <label class="small mb-1" for="id_jnskepeg"
                       >Jenis Kepegawaian</label
                     >
-                    <select class="form-control" id="id_jnskepeg">
-                      <option value="">Pilih Jenis Kepegawaian</option>
-                    </select>
+                    <select class="form-control" id="id_jnskepeg"></select>
                   </div>
                 </div>
 
@@ -185,9 +182,7 @@
                   <label class="small mb-1" for="id_statuskepeg"
                     >Status Kepegawaian</label
                   >
-                  <select class="form-control" id="id_statuskepeg">
-                    <option value="">Pilih Status Kepegawaian</option>
-                  </select>
+                  <select class="form-control" id="id_statuskepeg"></select>
                 </div>
 
                 <div class="row gx-3 mb-3">
@@ -225,13 +220,6 @@
 
                 <div class="row gx-3 mb-3">
                   <div class="col-md-6">
-                    <label class="small mb-1" for="pejabat_sk"
-                      >Pejabat SK</label
-                    >
-                    <input class="form-control" id="pejabat_sk" type="text" />
-                  </div>
-
-                  <div class="col-md-6">
                     <label class="small mb-1" for="mk_tahun"
                       >Masa Kerja (Tahun)</label
                     >
@@ -254,16 +242,6 @@
                   </div>
 
                   <div class="col-md-6">
-                    <label class="small mb-1" for="tmt_baru"
-                      >Terhitung Tanggal Mulai (TMT) Baru</label
-                    >
-                    <input
-                      class="form-control"
-                      id="tmt_baru"
-                      type="date"
-                      name="tmt_baru" />
-                  </div>
-                  <div class="col-md-6">
                     <label class="small mb-1" for="gapok_baru"
                       >Gaji Pokok (Baru)</label
                     >
@@ -284,14 +262,14 @@
                       name="gapok_terbilang" />
                   </div>
                   <div class="col-md-6">
-                    <label class="small mb-1" for="naik_selanjutnya"
-                      >Naik Selanjutnya</label
+                    <label class="small mb-1" for="tmt_baru"
+                      >Terhitung Tanggal Mulai (TMT) Baru</label
                     >
                     <input
                       class="form-control"
-                      id="naik_selanjutnya"
+                      id="tmt_baru"
                       type="date"
-                      name="naik_selanjutnya" />
+                      name="tmt_baru" />
                   </div>
                   <div class="col-md-6">
                     <label class="small mb-1" for="ket">Keterangan</label>
@@ -302,13 +280,31 @@
                       <option value="Ditolak">Ditolak</option>
                     </select>
                   </div>
+                  <div class="mb-3">
+                    <label class="small mb-1" for="kenaikan_gaji_berkala"
+                      >Kenaikan Gaji Berkala</label
+                    >
+                    <input
+                      class="form-control"
+                      id="kenaikan_gaji_berkala"
+                      type="date" />
+                  </div>
+                  <div class="mb-3">
+                    <label class="small mb-1" for="kenaikan_pangkat_selanjutnya"
+                      >Kenaikan Pangkat Selanjutnya</label
+                    >
+                    <input
+                      class="form-control"
+                      id="kenaikan_pangkat_selanjutnya"
+                      type="date" />
+                  </div>
                 </div>
                 <a
                   type="button"
                   onclick="updateKp()"
                   class="btn btn-primary btn-lg"
                   role="button"
-                  >Update</a
+                  >Ajukan Kenaikan Pangkat</a
                 >
               </form>
             </div>

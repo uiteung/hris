@@ -6,7 +6,7 @@ const dropdownJenisKepeg = document.getElementById("id_jnskepeg");
 const dropdownGolongan = document.getElementById("id_gol");
 
 // Fetch data dari API jabatan
-fetch("http://127.0.0.1:3000/jbtn/jabatanstruktural")
+fetch("https://hris_backend.ulbi.ac.id/jbtn/jabatanstruktural")
 	.then((response) => response.json())
 	.then((data) => {
 		// Looping data jabatan dan tambahkan data ke dalam dropdown
@@ -20,7 +20,7 @@ fetch("http://127.0.0.1:3000/jbtn/jabatanstruktural")
 	.catch((error) => console.error(error));
 
 // Fetch data dari API status kepegawaian
-fetch("http://127.0.0.1:3000/stskepeg/statuskepegawaian")
+fetch("https://hris_backend.ulbi.ac.id/stskepeg/statuskepegawaian")
 	.then((response) => response.json())
 	.then((data) => {
 		// Looping data stskepeg dan tambahkan data ke dalam dropdown
@@ -34,7 +34,7 @@ fetch("http://127.0.0.1:3000/stskepeg/statuskepegawaian")
 	.catch((error) => console.error(error));
 
 // Fetch data dari API jenis kepegawaian
-fetch("http://127.0.0.1:3000/jnskepeg/jeniskepegawaian")
+fetch("https://hris_backend.ulbi.ac.id/jnskepeg/jeniskepegawaian")
 	.then((response) => response.json())
 	.then((data) => {
 		// Looping data jabatan dan tambahkan data ke dalam dropdown
@@ -48,13 +48,13 @@ fetch("http://127.0.0.1:3000/jnskepeg/jeniskepegawaian")
 	.catch((error) => console.error(error));
 
 // Fetch data dari API golongan
-fetch("http://127.0.0.1:3000/gol/golongan")
+fetch("https://hris_backend.ulbi.ac.id/gol/golongan")
 	.then((response) => response.json())
 	.then((data) => {
 		// Looping data jabatan dan tambahkan data ke dalam dropdown
 		data.data.forEach((gol) => {
 			let option = document.createElement("option");
-			option.text = gol.gol;
+			option.text = gol.golongan_pangkat;
 			option.value = gol.id_gol;
 			dropdownGolongan.add(option);
 		});
@@ -62,7 +62,7 @@ fetch("http://127.0.0.1:3000/gol/golongan")
 	.catch((error) => console.error(error));
 
 fetch(
-	`http://127.0.0.1:3000/kp/kenaikanpangkat/byid/${idNaikpangkat}`
+	`https://hris_backend.ulbi.ac.id/kp/kenaikanpangkat/byid/${idNaikpangkat}`
 )
 	.then((result) => {
 		// Ubah data yang didapat dari server menjadi objek JSON
@@ -77,20 +77,20 @@ fetch(
 		document.getElementById("nama").value = data.data.nama;
 		document.getElementById("nip").value = data.data.nip;
 		document.getElementById("nidn").value = data.data.nidn;
-		document.getElementById("nipy").value = data.data.nipy;
 		document.getElementById("handphone").value = data.data.handphone;
 		document.getElementById("nik").value = data.data.ktp;
+		document.getElementById("jabatan").value = data.data.jabatan;
 		document.getElementById("no_surat_usul").value = data.data.no_surat_usul;
 		document.getElementById("tgl_surat_usul").value = data.data.tgl_surat_usul;
 		document.getElementById("no_sk").value = data.data.no_sk;
 		document.getElementById("tgl_sk").value = data.data.tgl_sk;
-		document.getElementById("pejabat_sk").value = data.data.pejabat_sk;
 		document.getElementById("mk_tahun").value = data.data.mk_tahun;
 		document.getElementById("mk_bulan").value = data.data.mk_bulan;
 		document.getElementById("tmt_baru").value = data.data.tmt_baru;
 		document.getElementById("gapok_baru").value = data.data.gapok_baru;
 		document.getElementById("gapok_terbilang").value = data.data.gapok_terbilang;
-		document.getElementById("naik_selanjutnya").value = data.data.naik_selanjutnya;
+		document.getElementById("kenaikan_gaji_berkala").value = data.data.kenaikan_gaji_berkala;
+		document.getElementById("kenaikan_pangkat_selanjutnya").value = data.data.kenaikan_pangkat_selanjutnya;
 		document.getElementById("ket").value = data.data.ket;
 	})
 
@@ -107,17 +107,18 @@ function updateKp() {
 	const newIdJenisKepegawaian = parseInt(document.getElementById('id_jnskepeg').value);
 	const newIdStatusKepegawaian = parseInt(document.getElementById('id_statuskepeg').value);
 	const newIdJenisJabatan = parseInt(document.getElementById('JenisJabatanID').value);
+	const newJabatan = document.getElementById('jabatan').value;
 	const newNoSuratUsul = document.getElementById('no_surat_usul').value;
 	const newTanggalSuratUsul = document.getElementById('tgl_surat_usul').value;
 	const newNoSk = document.getElementById('no_sk').value;
 	const newTanggalSK = document.getElementById('tgl_sk').value;
-	const newPejabatSK = document.getElementById('pejabat_sk').value;
 	const newMkTahun = document.getElementById('mk_tahun').value;
 	const newMkBulan = document.getElementById('mk_bulan').value;
 	const newTmtBaru = document.getElementById('tmt_baru').value;
 	const newGapokBaru = parseFloat(document.getElementById('gapok_baru').value);
 	const newGapokTerbilang = document.getElementById('gapok_terbilang').value;
-	const newNaikSelanjutnya = document.getElementById('naik_selanjutnya').value;
+	const newKenaikanGajiBerkala = document.getElementById('kenaikan_gaji_berkala').value;
+	const newKenaikanPangkatSelanjutnya = document.getElementById('kenaikan_pangkat_selanjutnya').value;
 	const newKeterangan = document.getElementById('ket').value;
 
 	// buat objek untuk dikirim ke server
@@ -127,29 +128,35 @@ function updateKp() {
 		id_jnskepeg: newIdJenisKepegawaian,
 		id_statuskepeg: newIdStatusKepegawaian,
 		JenisJabatanID: newIdJenisJabatan,
+		jabatan: newJabatan,
 		no_surat_usul: newNoSuratUsul,
 		tgl_surat_usul: newTanggalSuratUsul,
 		no_sk: newNoSk,
 		tgl_sk: newTanggalSK,
-		pejabat_sk: newPejabatSK,
 		mk_tahun: newMkTahun,
 		mk_bulan: newMkBulan,
 		tmt_baru: newTmtBaru,
 		gapok_baru: newGapokBaru,
 		gapok_terbilang: newGapokTerbilang,
-		naik_selanjutnya: newNaikSelanjutnya,
+		kenaikan_gaji_berkala: newKenaikanGajiBerkala,
+		kenaikan_pangkat_selanjutnya: newKenaikanPangkatSelanjutnya,
 		ket: newKeterangan
 	};
 
 	// kirim permintaan ke server
-	fetch(`http://127.0.0.1:3000/kp/kenaikanpangkat/edit/${idNaikpangkat}`, {
+	fetch(`https://hris_backend.ulbi.ac.id/kp/kenaikanpangkat/edit/${idNaikpangkat}`, {
 		method: 'PATCH',
 		body: JSON.stringify(data),
 		headers: {
 			'Content-type': 'application/json',
 		},
 	})
-		.then((response) => response.json())
+		.then((response) => {
+			if (!response.ok) { // cek jika response tidak ok
+				throw new Error('Terjadi kesalahan saat mengajukan kenaikan pangkat'); // lempar error
+			}
+			return response.json();
+		})
 		.then((json) => {
 			console.log(json);
 			// tampilkan notifikasi ketika data berhasil diupdate
@@ -161,5 +168,14 @@ function updateKp() {
 				// redirect ke halaman home setelah update berhasil
 				window.location.href = 'kenaikanpangkat.html';
 			});
+		})
+		.catch((error) => { // tangani kesalahan
+			console.error(error); // tampilkan error di console
+			// tampilkan notifikasi error
+			Swal.fire(
+				'Error!',
+				error.message,
+				'error'
+			);
 		});
 }
