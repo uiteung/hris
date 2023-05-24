@@ -46,5 +46,4 @@ fetch("https://hris_backend.ulbi.ac.id/pegawai/sdm")
 	})
 	.catch(error => {
 		console.log('error', error);
-		alert('Terjadi kesalahan pada server');
 	});
