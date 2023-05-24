@@ -1,4 +1,4 @@
-fetch("http://127.0.0.1:3000/kp/kenaikanpangkat")
+fetch("https://hris_backend.ulbi.ac.id/kp/kenaikanpangkat")
 	.then((result) => {
 		return result.json();
 	})
@@ -10,7 +10,6 @@ fetch("http://127.0.0.1:3000/kp/kenaikanpangkat")
         <tr class="text-xs bg-gray-50">
           <td class="py-5 px-6 font-medium">${values.nama}</td>
           <td class="py-5 px-6 font-medium">${values.nip}</td>
-          <td class="py-5 px-6 font-medium">${values.nipy}</td>
           <td class="py-5 px-6 font-medium">${values.ktp}</td>
           <td class="py-5 px-6 font-medium">${values.nidn}</td>
           <td class="py-5 px-6 font-medium">${values.handphone}</td>

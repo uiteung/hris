@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/tailwind/tailwind.min.css">
     <link rel="icon" type="image/png" sizes="32x32" href="shuffle-for-tailwind.png">
     <script src="js/main.js"></script>
+	<script src="js/croot.js" type="module"></script>
 </head>
 <body class="antialiased bg-body text-body font-body">
     <div class="">           
@@ -155,7 +156,15 @@
           <div class="p-4 mb-6 bg-white shadow rounded overflow-x-auto">
             <table class="table-auto w-full">
               <thead>
-                <tr class="text-xs text-gray-500 text-left"><th class="pl-6 pb-3 font-medium">NIDN</th><th class="pb-3 font-medium">Nama</th><th class="pb-3 font-medium">NIP</th><th class="pb-3 font-medium">Nama Status Aktif</th><th class="pb-3 font-medium">Nama Status Pegawai</th><th class="pb-3 font-medium">Jenis SDM</th><th class="pb-3 font-medium">Detail SDM</th></tr>
+                <tr class="text-xs text-gray-500 text-left">
+					<th class="pl-6 pb-3 font-medium">NIDN</th>
+					<th class="pb-3 font-medium">Nama</th>
+					<th class="pb-3 font-medium">NIP</th>
+					<th class="pb-3 font-medium">Nama Status Aktif</th>
+					<th class="pb-3 font-medium">Nama Status Pegawai</th>
+					<th class="pb-3 font-medium">Jenis SDM</th>
+					<th class="pb-3 font-medium">Detail SDM</th>
+				</tr>
               </thead>
               <tbody id="tablebody">
                 <script src="js/pegawai.js"></script>
@@ -168,4 +177,3 @@
     <script src="js/charts-demo.js"></script>
 </body>
 </html>
-

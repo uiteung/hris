@@ -65,7 +65,7 @@ fetch(`https://hris_backend.ulbi.ac.id/pegawai/sdm/kepegawaian/${idSdm}`)
                 <li
                   class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                   <h6 class="mb-0">NIP</h6>
-                  <span class="text-bold">${data.data.nip}</span>
+                  <span class="text-bold">${data.data.nip ? data.data.nip : "-"}</span>
                 </li>
                 <li
                   class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -231,21 +231,21 @@ fetch(`https://hris_backend.ulbi.ac.id/pegawai/sdm/alamat/${idSdm}`)
                   <div class="col-sm-3">
                     <h6 class="mb-0">Alamat</h6>
                   </div>
-                  <div class="col-sm-9 text-bold">${data.data.alamat}</div>
+                  <div class="col-sm-9 text-bold">${data.data.alamat ? data.data.alamat : "-"}</div>
                 </div>
                 <hr />
                 <div class="row">
                   <div class="col-sm-3">
                     <h6 class="mb-0">Rt</h6>
                   </div>
-                  <div class="col-sm-9 text-bold">${data.data.rt}</div>
+                  <div class="col-sm-9 text-bold">${data.data.rt ? data.data.rt : "-"}</div>
                 </div>
                 <hr />
                 <div class="row">
                   <div class="col-sm-3">
                     <h6 class="mb-0">Rw</h6>
                   </div>
-                  <div class="col-sm-9 text-bold">${data.data.rw}</div>
+                  <div class="col-sm-9 text-bold">${data.data.rw ? data.data.rw : "-"}</div>
                 </div>
 				<hr />
                 <div class="row">
@@ -273,7 +273,7 @@ fetch(`https://hris_backend.ulbi.ac.id/pegawai/sdm/alamat/${idSdm}`)
                   <div class="col-sm-3">
                     <h6 class="mb-0">Kode Pos</h6>
                   </div>
-                  <div class="col-sm-9 text-bold">${data.data.kode_pos}</div>
+                  <div class="col-sm-9 text-bold">${data.data.kode_pos ? data.data.kode_pos : "-"}</div>
                 </div>
 				<hr />
                 <div class="row">
