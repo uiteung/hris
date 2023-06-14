@@ -149,7 +149,7 @@
                   <span class="text-green-300">Human Resource Information System</span>
                   <span>(HRIS)</span>
                 </h3>
-                <p class="text-xl font-medium text-blue-100">Data Pegawai</p>
+                <p class="text-xl font-medium text-blue-100">Data Honor Perwalian</p>
               </div>
               <div class="relative w-full md:w-1/2 px-12">
                 <img src="artemis-assets/images/LOGO ULBI - WIDE BACKGROUNG NEVY resize.png" >
@@ -162,21 +162,25 @@
                 
       <section class="py-8">
         <div class="container px-4 mx-auto">
+            <input id="dosenIdInput" type="text"  class="ltr:ml-2 rtl:mr-2 py-2 px-4 inline-block text-left mb-3 rounded leading-5 border hover:bg-blue-100 dark:bg-blue-600 dark:bg-opacity-40 dark:border-blue-800 dark:hover:bg-blue-900 focus:outline-none focus:ring-0" placeholder="Masukkan Kode Dosen">
+                            <input  id="submit_btn" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" value="Cari" >
           <div class="p-4 mb-6 bg-white shadow rounded overflow-x-auto">
             <table class="table-auto w-full">
               <thead>
                 <tr class="text-xs text-gray-500 text-left">
-					<th class="pl-6 pb-3 font-medium">NIDN</th>
-					<th class="pb-3 font-medium">Nama</th>
-					<th class="pb-3 font-medium">NIP</th>
-					<th class="pb-3 font-medium">Nama Status Aktif</th>
-					<th class="pb-3 font-medium">Nama Status Pegawai</th>
-					<th class="pb-3 font-medium">Jenis SDM</th>
-					<th class="pb-3 font-medium">Detail SDM</th>
+					<th class="pl-6 pb-3 font-medium">Kode Dosen</th>
+					<th class="pb-3 font-medium">Nama Dosen</th>
+					<th class="pb-3 font-medium">Tahun</th>
+					<th class="pb-3 font-medium">Perwalian Ke</th>
+					<th class="pb-3 font-medium">Tahun Angkatan</th>
+					<th class="pb-3 font-medium">Kelas</th>
+					<th class="pb-3 font-medium">Tanggal Waktu</th>
+					<th class="pb-3 font-medium">Honor</th>
+					<th class="pb-3 font-medium">Detail</th>
 				</tr>
               </thead>
-              <tbody id="tablebody">
-                <script src="js/pegawai.js"></script>
+              <tbody id="results_body">
+                <script src="js/controller/script.js"></script>
               </tbody>
             </table>
           </div>
@@ -184,5 +188,6 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="js/charts-demo.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
