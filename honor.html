@@ -162,20 +162,27 @@
                 
       <section class="py-8">
         <div class="container px-4 mx-auto">
+          <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            <select id="tahunIdInput" class="inline-block leading-5 relative py-2 text-white bg-blue-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/7 p-2.5 dark:bg-blue-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              <option>Pilih Tahun</option>
+              <option value="20211">20211</option>
+              <option value="20212">20212</option>
+              <option value="20221">20221</option>
+              <option value="20222">20222</option>
+            </select>
             <input id="dosenIdInput" type="text"  class="ltr:ml-2 rtl:mr-2 py-2 px-4 inline-block text-left mb-3 rounded leading-5 border hover:bg-blue-100 dark:bg-blue-600 dark:bg-opacity-40 dark:border-blue-800 dark:hover:bg-blue-900 focus:outline-none focus:ring-0" placeholder="Masukkan Kode Dosen">
                             <input  id="submit_btn" type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded cursor-pointer" value="Cari" >
+          </label>
           <div class="p-4 mb-6 bg-white shadow rounded overflow-x-auto">
             <table class="table-auto w-full">
               <thead>
-                <tr class="text-xs text-gray-500 text-left">
-					<th class="pl-6 pb-3 font-medium">Kode Dosen</th>
+                <tr class="text-xs text-gray-500 text-justify">
+					<th class="pb-3 font-medium">Kode Dosen</th>
 					<th class="pb-3 font-medium">Nama Dosen</th>
 					<th class="pb-3 font-medium">Tahun</th>
-					<th class="pb-3 font-medium">Perwalian Ke</th>
-					<th class="pb-3 font-medium">Tahun Angkatan</th>
-					<th class="pb-3 font-medium">Kelas</th>
-					<th class="pb-3 font-medium">Tanggal Waktu</th>
+					<th class="pb-3 font-medium">Total Perwalian</th>
 					<th class="pb-3 font-medium">Honor</th>
+          <th class="pb-3 font-medium">Tanggal Waktu</th>
 					<th class="pb-3 font-medium">Detail</th>
 				</tr>
               </thead>

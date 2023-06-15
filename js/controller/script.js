@@ -1,5 +1,5 @@
-function fetchData(DosenID) {
-  const url = `http://127.0.0.1:3000/honor/dosen/perwalian/${DosenID}`;
+function fetchData(DosenID, TahunID) {
+  const url = `http://127.0.0.1:3000/honor/dosen/honorperwalian/${DosenID}/${TahunID}`;
 
   return new Promise((resolve, reject) => {
     fetch(url)
@@ -38,23 +38,23 @@ const pembimbingMapping = {
   TI041L: "Woro Isti Rahayu, S.T., M.T., SFPC",
 };
 
-// const Tahunajaran = {
-//   21: "Tahun Ajaran Ganjil",
-//   22: "Tahun Ajaran Genap",
-// };
+const Tahunajaran = {
+  21: "Tahun Ajaran Ganjil",
+  22: "Tahun Ajaran Genap",
+};
 
-// function getTahunAjaran(tahun) {
-//   const duaDigitTerakhir = tahun.slice(-2);
-//   if (parseInt(duaDigitTerakhir) % 2 === 0) {
-//     return "Tahun Ajaran Genap";
-//   } else {
-//     return "Tahun Ajaran Ganjil";
-//   }
-// }
+function getTahunAjaran(tahun) {
+  const duaDigitTerakhir = tahun.slice(-2);
+  if (parseInt(duaDigitTerakhir) % 2 === 0) {
+    return "Tahun Ajaran Genap";
+  } else {
+    return "Tahun Ajaran Ganjil";
+  }
+}
 
-// const tahun = "20222";
-// const tahunAjaran = getTahunAjaran(tahun);
-// console.log(tahunAjaran);
+const tahun = "20222";
+const tahunAjaran = getTahunAjaran(tahun);
+console.log(tahunAjaran);
 
 function displayResults(data) {
   const resultsBody = document.getElementById("results_body");
@@ -64,21 +64,15 @@ function displayResults(data) {
     data.forEach((item) => {
       const row = document.createElement("tr");
       row.innerHTML = `
-      <td class="py-5 px-6 font-medium">${item.DosenID}</td>
-      <td class="py-5 px-6 font-medium">${pembimbingMapping[item.DosenID]}</td>
-      <td class="flex px-4 py-3">
-        <div>
-          <p class="font-medium">${item.TahunID}</p>
-        </div>
-      </td>
-      <td class="font-medium">${item.PerwalianKe}</td>
-      <td class="py-5 px-6 font-medium">${item.TahunAngkatan}</td>
-      <td class="py-5 px-6 font-medium">${item.Kelas}</td>
-      <td class="py-5 px-6 font-medium">${item.TanggalWaktu}</td>
-      <td class="py-5 px-6 font-medium">${item.Honor}</td>
+      <td class="text-justify">${item.DosenID}</td>
+      <td class="text-justify">${pembimbingMapping[item.DosenID]}</td>
+      <td class="text-justify">${item.TahunID}</td>
+      <td class="text-justify">${item.TotalPerwalian}</td>
+      <td class="text-justify">${item.Honor}</td>
+      <td class="text-justify">${item.TanggalWaktu}</td>
       </td>
       <td>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-employee-id="${
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-perwalian-id="${
           item.PresensiPerwalianID
         }">
           Detail
@@ -103,7 +97,9 @@ function displayResults(data) {
 
 function applyFilters() {
   const dosenIdInput = document.querySelector("#dosenIdInput");
+  const tahunIdInput = document.querySelector("#tahunIdInput");
   const kodedosen = dosenIdInput.value.trim();
+  const tahunid = tahunIdInput.value.trim();
 
   Swal.fire({
     title: "Memproses",
@@ -115,7 +111,7 @@ function applyFilters() {
     },
   });
 
-  fetchData(kodedosen)
+  fetchData(kodedosen, tahunid)
     .then(() => {
       Swal.close(); // Menutup SweetAlert setelah pencarian berhasil
       Swal.fire({
