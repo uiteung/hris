@@ -1,5 +1,5 @@
 function fetchData(DosenID, TahunID) {
-  const url = `http://127.0.0.1:3000/honor/dosen/honorperwalian/${DosenID}/${TahunID}`;
+  const url = `http://127.0.0.1:3000/honor/dosen/perwalian/${DosenID}/${TahunID}`;
 
   return new Promise((resolve, reject) => {
     fetch(url)
@@ -23,20 +23,6 @@ function fetchData(DosenID, TahunID) {
       });
   });
 }
-
-const pembimbingMapping = {
-  NN056L: "Cahyo Prianto, S.Pd., M.T.,CDSP, SFPC",
-  TI126L: "M. Yusril Helmi Setyawan, S.Kom., M.Kom.,SFPC",
-  TI122L: "Mohamad Nurkamal Fauzan, S.T., M.T., SFPC",
-  NN222L: "Nisa Hanum Harani, S.Kom., M.T.,CDSP, SFPC",
-  NN225L: "Noviana Riza, S.Si., M.T., SFPC",
-  LB053L: "Rd. Nuraini Siti Fatonah, S.S., M.Hum., SFPC",
-  NN257L: "Rolly Maulana Awangga,S.T.,MT.,CAIP, SFPC",
-  NN258L: "Roni Andarsyah, S.T., M.Kom., SFPC",
-  TI117L: "Roni Habibi, S.Kom., M.T., SFPC",
-  TI125L: "Syafrial Fachri Pane,ST. MTI,EBDP.CDSP,SFPC",
-  TI041L: "Woro Isti Rahayu, S.T., M.T., SFPC",
-};
 
 const Tahunajaran = {
   21: "Tahun Ajaran Ganjil",
@@ -65,16 +51,14 @@ function displayResults(data) {
       const row = document.createElement("tr");
       row.innerHTML = `
       <td class="text-justify">${item.DosenID}</td>
-      <td class="text-justify">${pembimbingMapping[item.DosenID]}</td>
+      <td class="text-justify">${item.Nama}</td>
       <td class="text-justify">${item.TahunID}</td>
       <td class="text-justify">${item.TotalPerwalian}</td>
       <td class="text-justify">${item.Honor}</td>
       <td class="text-justify">${item.TanggalWaktu}</td>
       </td>
       <td>
-        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-perwalian-id="${
-          item.PresensiPerwalianID
-        }">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" data-perwalian-id="${item.PresensiPerwalianID}">
           Detail
         </button>
       </td>
