@@ -1,2 +1,2 @@
 # hris
-Human Resource Information System
+Human Resource Information System 
